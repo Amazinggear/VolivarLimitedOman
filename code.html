@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WebBay | موقعك جاهز خلال 72 ساعة</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#4a4949",
+                      "on-secondary-fixed-variant": "#474646",
+                      "primary": "#b6c4ff",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary": "#313030",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-tint": "#b6c4ff",
+                      "secondary-fixed-dim": "#c9c6c5",
+                      "on-primary-container": "#e5e8ff",
+                      "tertiary-container": "#676969",
+                      "outline-variant": "#434656",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "on-primary-fixed-variant": "#003ab2",
+                      "on-primary": "#00277f",
+                      "surface": "#131313",
+                      "on-secondary-container": "#bab8b7",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "surface-bright": "#393939",
+                      "surface-dim": "#131313",
+                      "inverse-on-surface": "#313030",
+                      "background": "#131313",
+                      "surface-container": "#20201f",
+                      "secondary-fixed": "#e5e2e1",
+                      "primary-container": "#0057ff",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-variant": "#353535",
+                      "surface-container-highest": "#353535",
+                      "on-tertiary": "#2f3131",
+                      "on-surface-variant": "#c3c5d9",
+                      "on-surface": "#e5e2e1",
+                      "inverse-primary": "#004ee7",
+                      "inverse-surface": "#e5e2e1",
+                      "tertiary": "#c6c6c7",
+                      "secondary": "#c9c6c5",
+                      "error-container": "#93000a",
+                      "tertiary-fixed": "#e2e2e2",
+                      "on-background": "#e5e2e1",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "primary-fixed": "#dce1ff",
+                      "on-error": "#690005",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "outline": "#8d90a2",
+                      "error": "#ffb4ab",
+                      "on-primary-fixed": "#001550",
+                      "on-tertiary-container": "#e9e9e9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-unit": "8px",
+                      "container-max": "1280px",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "80px",
+                      "gutter": "32px",
+                      "section-gap": "120px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Alexandria", "sans-serif"],
+                      "body-lg": ["Alexandria", "sans-serif"],
+                      "display-lg-mobile": ["Alexandria", "sans-serif"],
+                      "body-md": ["Alexandria", "sans-serif"],
+                      "headline-sm": ["Alexandria", "sans-serif"],
+                      "headline-md": ["Alexandria", "sans-serif"],
+                      "label-caps": ["Inter", "sans-serif"]
+              },
+              "fontSize": {
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Typography Updates */
+        @font-face {
+            font-family: 'Cy Bold';
+            src: local('Arial Bold'); /* Fallback since web font isn't standard, adjusting to request */
+            font-weight: 700;
+        }
+
+        /* Luxury Tech Minimalism & Glassmorphism Utilities */
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            overflow-x: hidden;
+            font-family: 'Alexandria', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glass-card:hover .accent-glow {
+            opacity: 1;
+        }
+
+        .accent-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, theme('colors.primary-container') 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -2;
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .btn-primary {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary-container');
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(0, 87, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: theme('colors.on-surface');
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, theme('colors.primary'), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* WebBay Branding specific */
+        .font-en {
+            font-family: 'Cy Bold', 'Inter', sans-serif;
+            font-weight: 700;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at 80% 20%, rgba(0, 87, 255, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
+        }
+
+        /* Table Styles */
+        .comparison-table th, .comparison-table td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-white">
+<!-- TopNavBar Component -->
+<nav class="bg-surface/50 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-sm">
+<div class="flex flex-row-reverse justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<!-- Brand -->
+<a class="font-display-lg text-headline-md text-on-surface tracking-tight font-en flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">language</span>
+                WebBay
+            </a>
+<!-- Navigation Links (Desktop) -->
+<ul class="hidden md:flex flex-row-reverse items-center gap-8">
+<li><a class="text-primary font-bold border-b-2 border-primary pb-1" href="#home">الرئيسية</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#models">النماذج</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#comparison">المقارنة</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">الأسعار</a></li>
+</ul>
+<!-- Trailing Action -->
+<div class="flex items-center gap-4">
+<a class="hidden md:inline-flex btn-primary px-6 py-2.5 rounded-lg font-body-md text-body-md items-center gap-2" href="#pricing">
+                    اطلب الآن
+                </a>
+<button class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- 1. Hero Section -->
+<section class="relative min-h-[90vh] flex items-center pt-16 pb-section-gap px-margin-mobile md:px-margin-desktop hero-bg" id="home">
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-8 z-10 text-right order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 w-fit ml-auto">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant font-en tracking-wider">WEBSITES DELIVERED FAST</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg">
+                        موقعك جاهز خلال <br/>
+<span class="text-gradient">72 ساعة</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl ml-auto">
+<span class="font-en">WebBay</span> يبني مواقع احترافية للشركات والمتاجر والعيادات والمطاعم بدون تعقيد وبدون انتظار أشهر. انطلق رقمياً اليوم بثقة.
+                    </p>
+<div class="flex flex-col sm:flex-row-reverse gap-4 justify-start">
+<a class="btn-primary px-8 py-4 rounded-xl font-headline-sm text-[18px] flex items-center justify-center gap-2" href="#pricing">
+                            ابدأ الآن
+                            <span class="material-symbols-outlined rtl:rotate-180">arrow_forward</span>
+</a>
+<a class="btn-secondary px-8 py-4 rounded-xl font-headline-sm text-[18px] flex items-center justify-center gap-2" href="#models">
+                            شاهد النماذج
+                        </a>
+</div>
+</div>
+<div class="relative order-1 lg:order-2">
+<div class="absolute inset-0 bg-primary-container/20 blur-[100px] rounded-full z-0"></div>
+<img alt="A premium high-tech 3D mockup showcasing multiple website designs on a desktop monitor, a tablet, and a modern smartphone." class="w-full h-auto relative z-10 object-contain drop-shadow-2xl mix-blend-lighten" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfoin4CADrgi3sIrk1w3ffg7cAw0NZpN3PtqaRxPPJOztzXPI9E7CtGZ2JzIP83g7ZKKlA6Uxpr-YJm5mqRI7T4NBbhgQNRNZkxCUvcxlL0CcXGOXwytta6ZwURzOX1lWkoZQrxN9MSgNNNHwmTOqMsAidEMmlRwKMMr4aHchWRculAdmIzE1EOo_SGakn2l0k4ftoBOjeYV9wDnAE2_4qIv3Y-aDzBY3EyWqE4KvaP3KZXrFcTEqeqPyxmI1DJSfUk0oabtWeWPo"/>
+</div>
+</div>
+</section>
+<!-- 2. How It Works -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop relative">
+<div class="max-w-container-max mx-auto text-center">
+<h2 class="font-headline-md text-headline-md mb-16">كيف يعمل <span class="font-en text-primary">WebBay</span>؟</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="glass-card rounded-2xl p-8 flex flex-col items-center text-center group">
+<div class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">category</span>
+</div>
+<h3 class="font-headline-sm text-[20px] mb-3">1. اختر نوع نشاطك</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">حدد النموذج الأقرب لمجال عملك من مكتبتنا المتنوعة.</p>
+<div class="accent-glow"></div>
+</div>
+<!-- Step 2 -->
+<div class="glass-card rounded-2xl p-8 flex flex-col items-center text-center group">
+<div class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">upload_file</span>
+</div>
+<h3 class="font-headline-sm text-[20px] mb-3">2. أرسل الشعار والمعلومات</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">زودنا بتفاصيلك، شعارك، وصورك لنقوم بتخصيص الموقع.</p>
+<div class="accent-glow"></div>
+</div>
+<!-- Step 3 -->
+<div class="glass-card rounded-2xl p-8 flex flex-col items-center text-center group">
+<div class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<h3 class="font-headline-sm text-[20px] mb-3">3. استلم موقعك</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">موقعك جاهز ومباشر على الإنترنت خلال 24–72 ساعة فقط.</p>
+<div class="accent-glow"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Ready Models -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest relative border-y border-white/5" id="models">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row-reverse justify-between items-end mb-16 gap-6">
+<div class="text-right">
+<h2 class="font-headline-md text-headline-md mb-4">النماذج الجاهزة</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">اختر من بين نماذجنا المصممة بعناية لتناسب مختلف القطاعات.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+<div class="glass-card rounded-xl p-6 flex flex-col items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">restaurant</span>
+<span class="font-headline-sm text-[16px]">المطاعم</span>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">local_hospital</span>
+<span class="font-headline-sm text-[16px]">العيادات</span>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">business_center</span>
+<span class="font-headline-sm text-[16px]">شركات خدمات</span>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">apartment</span>
+<span class="font-headline-sm text-[16px]">العقارات</span>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">shopping_cart</span>
+<span class="font-headline-sm text-[16px]">متجر إلكتروني</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Comparison Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop relative" id="comparison">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md mb-4">لماذا تختار <span class="font-en text-primary">WebBay</span>؟</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">مقارنة بين الخيارات المتاحة لإنشاء موقعك</p>
+</div>
+<div class="glass-card rounded-2xl overflow-x-auto">
+<table class="w-full text-right comparison-table">
+<thead>
+<tr class="bg-white/5">
+<th class="p-6 font-headline-sm text-[18px] w-1/4">الميزة</th>
+<th class="p-6 font-headline-sm text-[18px] text-on-surface-variant w-1/4">مبرمج مستقل<br/><span class="font-en text-sm font-normal">(Freelancer)</span></th>
+<th class="p-6 font-headline-sm text-[18px] text-on-surface-variant w-1/4">وكالة إعلانية<br/><span class="font-en text-sm font-normal">(Agency)</span></th>
+<th class="p-6 font-headline-sm text-[20px] text-primary w-1/4 bg-primary-container/10"><span class="font-en">WebBay</span></th>
+</tr>
+</thead>
+<tbody class="font-body-md">
+<tr>
+<td class="p-6 font-bold">التكلفة</td>
+<td class="p-6 text-on-surface-variant">متوسطة إلى غير متوقعة</td>
+<td class="p-6 text-on-surface-variant">عالية جداً</td>
+<td class="p-6 text-primary bg-primary-container/10 font-bold">اقتصادية ومدروسة</td>
+</tr>
+<tr>
+<td class="p-6 font-bold">وقت التسليم</td>
+<td class="p-6 text-on-surface-variant">أسابيع / أشهر</td>
+<td class="p-6 text-on-surface-variant">أشهر</td>
+<td class="p-6 text-primary bg-primary-container/10 font-bold">72 ساعة فقط</td>
+</tr>
+<tr>
+<td class="p-6 font-bold">الجودة والتصميم</td>
+<td class="p-6 text-on-surface-variant">متذبذبة حسب الخبرة</td>
+<td class="p-6 text-on-surface-variant">ممتازة ولكن معقدة</td>
+<td class="p-6 text-primary bg-primary-container/10 font-bold">احترافية ومحسنة للأداء</td>
+</tr>
+<tr>
+<td class="p-6 font-bold">الصيانة والدعم</td>
+<td class="p-6 text-on-surface-variant">محدود أو معدوم</td>
+<td class="p-6 text-on-surface-variant">عقود صيانة مكلفة</td>
+<td class="p-6 text-primary bg-primary-container/10 font-bold">دعم مستمر وموثوق</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Customer Benefits Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest relative border-y border-white/5">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md mb-4">ماذا سيحصل عملاؤك؟</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">نحن نبني مواقع تسعد زوارك وتزيد من مبيعاتك.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-card rounded-xl p-8 flex flex-col items-center text-center gap-4">
+<div class="w-14 h-14 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">devices</span>
+</div>
+<h3 class="font-headline-sm text-[18px]">تصميم متجاوب</h3>
+<p class="font-body-md text-on-surface-variant">موقعك سيعمل بشكل مثالي على الهواتف، الأجهزة اللوحية، وشاشات الكمبيوتر.</p>
+</div>
+<div class="glass-card rounded-xl p-8 flex flex-col items-center text-center gap-4">
+<div class="w-14 h-14 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">speed</span>
+</div>
+<h3 class="font-headline-sm text-[18px]">سرعة تصفح عالية</h3>
+<p class="font-body-md text-on-surface-variant">أداء محسن يضمن تحميل الصفحات بسرعة فائقة لعدم فقدان أي زائر.</p>
+</div>
+<div class="glass-card rounded-xl p-8 flex flex-col items-center text-center gap-4">
+<div class="w-14 h-14 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">touch_app</span>
+</div>
+<h3 class="font-headline-sm text-[18px]">تجربة مستخدم سلسة</h3>
+<p class="font-body-md text-on-surface-variant">واجهات بديهية وسهلة الاستخدام تجعل تنقل العميل في موقعك متعة.</p>
+</div>
+<div class="glass-card rounded-xl p-8 flex flex-col items-center text-center gap-4">
+<div class="w-14 h-14 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">security</span>
+</div>
+<h3 class="font-headline-sm text-[18px]">أمان وموثوقية</h3>
+<p class="font-body-md text-on-surface-variant">شهادات حماية متقدمة لضمان أمان بيانات زوارك وبناء ثقتهم.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Pricing -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop relative" id="pricing">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md mb-4">باقات شفافة، بدون مفاجآت</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">استثمارك الرقمي يبدأ من هنا.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+<!-- Starter -->
+<div class="glass-card rounded-2xl p-8 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm mb-2 font-en text-left" dir="ltr">Starter</h3>
+<div class="mb-6 pb-6 border-b border-white/10">
+<div class="flex items-end gap-1 font-display-lg text-[40px] text-primary">
+<span class="font-body-md text-body-md text-on-surface-variant mb-2"></span> 49
+                            </div>
+<p class="font-body-md text-body-md text-on-surface-variant">ريال تجهيز</p>
+<div class="mt-2 text-on-surface font-semibold">+ 5 ريال شهرياً</div>
+</div>
+<ul class="flex flex-col gap-4 mb-8 flex-grow">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">صفحة هبوط واحدة</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">استضافة ونطاق</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">دعم فني أساسي</span>
+</li>
+</ul>
+<button class="btn-secondary w-full py-3 rounded-lg font-headline-sm text-[16px]">اطلب الباقة</button>
+</div>
+<!-- Business (Highlighted) -->
+<div class="glass-card rounded-2xl p-8 flex flex-col border border-primary relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(0,87,255,0.15)]">
+<div class="absolute -top-3 right-8 bg-primary text-on-primary font-label-caps text-xs px-3 py-1 rounded-full font-bold">الأكثر طلباً</div>
+<h3 class="font-headline-sm text-headline-sm mb-2 font-en text-left text-primary" dir="ltr">Business</h3>
+<div class="mb-6 pb-6 border-b border-white/10">
+<div class="flex items-end gap-1 font-display-lg text-[48px] text-primary">
+<span class="font-body-md text-body-md text-on-surface-variant mb-2"></span> 99
+                            </div>
+<p class="font-body-md text-body-md text-on-surface-variant">ريال تجهيز</p>
+<div class="mt-2 text-on-surface font-semibold">+ 10 ريال شهرياً</div>
+</div>
+<ul class="flex flex-col gap-4 mb-8 flex-grow">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">موقع متعدد الصفحات</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">ربط واتساب وخرائط جوجل</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">نموذج اتصال</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">صيانة دورية</span>
+</li>
+</ul>
+<button class="btn-primary w-full py-3 rounded-lg font-headline-sm text-[16px]">اطلب الباقة</button>
+<div class="accent-glow" style="opacity: 0.3;"></div>
+</div>
+<!-- Pro -->
+<div class="glass-card rounded-2xl p-8 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm mb-2 font-en text-left" dir="ltr">Pro</h3>
+<div class="mb-6 pb-6 border-b border-white/10">
+<div class="flex items-end gap-1 font-display-lg text-[40px] text-primary">
+<span class="font-body-md text-body-md text-on-surface-variant mb-2"></span> 199
+                            </div>
+<p class="font-body-md text-body-md text-on-surface-variant">ريال تجهيز</p>
+<div class="mt-2 text-on-surface font-semibold">+ 20 ريال شهرياً</div>
+</div>
+<ul class="flex flex-col gap-4 mb-8 flex-grow">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">تصميم متقدم مخصص</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">نظام حجز / متجر</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">تحسين محركات البحث (SEO)</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-body-md text-body-md">دعم فني ذو أولوية</span>
+</li>
+</ul>
+<button class="btn-secondary w-full py-3 rounded-lg font-headline-sm text-[16px]">اطلب الباقة</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Component -->
+<footer class="bg-surface-container-lowest w-full py-section-gap border-t border-outline-variant flat no shadows">
+<div class="flex flex-col items-center gap-stack-unit text-center max-w-container-max mx-auto px-margin-mobile">
+<a class="font-display-lg text-headline-sm text-on-surface font-en flex items-center gap-2 mb-6" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">language</span>
+                    WebBay
+                </a>
+<ul class="flex flex-wrap justify-center gap-6 mb-8 font-body-md text-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">الخصوصية</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">الشروط</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">اتصل بنا</a></li>
+</ul>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 WebBay. جميع الحقوق محفوظة.</p>
+</div>
+</footer>
+</main>
+<script>
+        // Simple FAQ Accordion Logic (if implemented later)
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const button = item.querySelector('button');
+                button?.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    // Close all
+                    faqItems.forEach(faq => faq.classList.remove('active'));
+                    // Open clicked if it wasn't active
+                    if (!isActive) item.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monolith Dental | التميز في طب الأسنان الحديث</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Alexandria -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f3f3f3",
+                      "on-surface": "#1b1b1b",
+                      "surface-tint": "#5e5e5e",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dadada",
+                      "secondary-container": "#dfe0e0",
+                      "on-secondary": "#ffffff",
+                      "primary": "#000000",
+                      "background": "#f9f9f9",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "on-error-container": "#93000a",
+                      "outline-variant": "#cfc4c5",
+                      "secondary": "#5d5f5f",
+                      "tertiary-container": "#1b1b1b",
+                      "surface-bright": "#f9f9f9",
+                      "on-secondary-container": "#616363",
+                      "on-error": "#ffffff",
+                      "surface-container": "#eeeeee",
+                      "secondary-fixed": "#e2e2e2",
+                      "inverse-primary": "#c6c6c6",
+                      "on-primary-fixed": "#1b1b1b",
+                      "surface-container-high": "#e8e8e8",
+                      "inverse-surface": "#303030",
+                      "primary-fixed": "#e2e2e2",
+                      "on-background": "#1b1b1b",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "primary-container": "#1b1b1b",
+                      "on-tertiary-container": "#848484",
+                      "on-surface-variant": "#4c4546",
+                      "on-primary-container": "#848484",
+                      "on-secondary-fixed-variant": "#454747",
+                      "tertiary-fixed": "#e2e2e2",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#f9f9f9",
+                      "outline": "#7e7576",
+                      "tertiary": "#000000",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-primary-fixed-variant": "#474747",
+                      "inverse-on-surface": "#f1f1f1",
+                      "on-tertiary-fixed": "#1b1b1b",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "surface-variant": "#e2e2e2",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#1a1c1c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1440px",
+                      "margin-mobile": "20px",
+                      "stack-sm": "12px",
+                      "stack-md": "40px",
+                      "margin-desktop": "80px",
+                      "unit": "4px",
+                      "stack-xl": "120px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Alexandria"
+                      ],
+                      "body-md": [
+                              "Alexandria"
+                      ],
+                      "headline-xl": [
+                              "Alexandria"
+                      ],
+                      "mono-data": [
+                              "Alexandria"
+                      ],
+                      "label-caps": [
+                              "Alexandria"
+                      ],
+                      "display-lg-mobile": [
+                              "Alexandria"
+                      ],
+                      "display-lg": [
+                              "Alexandria"
+                      ],
+                      "headline-md": [
+                              "Alexandria"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "headline-xl": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "mono-data": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "48px",
+                              {
+                                      "lineHeight": "52px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "200"
+                              }
+                      ],
+                      "display-lg": [
+                              "80px",
+                              {
+                                      "lineHeight": "90px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "200"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        /* Custom overrides to match strict monochrome guidance */
+        body {
+            background-color: #ffffff; /* Override default background for strict monochrome */
+            color: #000000;
+        }
+        
+        /* Ultra-minimalist input fields */
+        .form-input-minimal {
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #000000;
+            border-radius: 0;
+            padding: 12px 0;
+            width: 100%;
+            outline: none;
+            transition: border-bottom-width 0.2s;
+        }
+        .form-input-minimal:focus {
+            border-bottom-width: 2px;
+            box-shadow: none;
+            outline: none;
+            border-color: #000000;
+            --tw-ring-color: transparent;
+        }
+
+        /* Strict primary button */
+        .btn-primary-strict {
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 0;
+            padding: 16px 32px;
+            transition: all 0.2s;
+        }
+        .btn-primary-strict:hover {
+            border: 1px solid #ffffff; /* Internal white border effect simulation */
+            box-shadow: inset 0 0 0 1px #ffffff;
+        }
+
+        /* Strict secondary button */
+        .btn-secondary-strict {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            border-radius: 0;
+            padding: 16px 32px;
+            transition: all 0.2s;
+        }
+        .btn-secondary-strict:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        /* Strict List Bullet */
+        .strict-list li::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #000000;
+            margin-left: 12px;
+            vertical-align: middle;
+        }
+      </style>
+</head>
+<body class="bg-surface-container-lowest text-primary font-body-md antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface w-full top-0 border-b border-primary dark:border-on-surface sticky z-50">
+<div class="flex flex-row-reverse justify-between items-center w-full px-margin-desktop py-6 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+<!-- Brand Logo -->
+<a class="font-headline-md text-headline-md text-primary dark:text-on-surface tracking-tighter" href="#">
+                Monolith Dental
+            </a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex flex-row gap-8 items-center">
+<a class="text-secondary dark:text-secondary-fixed-dim font-body-md text-body-md hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#about">
+                    About
+                </a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-body-md text-body-md hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#services">
+                    Services
+                </a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-body-md text-body-md hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#contact">
+                    Contact
+                </a>
+</div>
+<!-- Trailing Primary Action -->
+<div class="hidden md:block">
+<a class="btn-primary-strict font-label-caps text-label-caps inline-block scale-100 active:scale-95 transition-transform" href="#book">
+                    Book Appointment
+                </a>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-size: 24px;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="w-full border-b border-primary pt-24 pb-32 md:pt-40 md:pb-48 px-margin-mobile md:px-margin-desktop relative overflow-hidden">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter relative z-10">
+<div class="md:col-span-8 md:col-start-5 text-right">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-6 leading-tight">
+                        التميز في طب الأسنان الحديث
+                    </h1>
+<p class="font-body-lg text-body-lg text-secondary mb-12 max-w-2xl mr-auto">
+                        نقدم رعاية أسنان استثنائية ضمن بيئة معمارية تتسم بالبساطة والهدوء. تركيزنا ينصب على الدقة السريرية والنتائج المثالية، دون تشتيت.
+                    </p>
+<a class="btn-primary-strict font-label-caps text-label-caps inline-flex items-center gap-4" href="#book">
+                        احجز موعدك
+                        <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Abstract background element mapping to architectural luxury -->
+<div class="absolute bottom-0 left-0 w-1/3 h-2/3 border-r border-t border-primary pointer-events-none opacity-20"></div>
+<div class="absolute top-20 right-20 w-64 h-64 border border-primary pointer-events-none opacity-10"></div>
+</section>
+<!-- Services Section (Bento-inspired Grid) -->
+<section class="w-full border-b border-primary py-stack-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="services">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-16">
+<div class="md:col-span-8 md:col-start-5 text-right">
+<h2 class="font-headline-xl text-headline-xl text-primary border-b border-primary pb-4 inline-block">الخدمات الفاخرة</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-r border-primary">
+<!-- Service 1 -->
+<div class="border-b border-l border-primary p-8 md:p-12 bg-surface-container-lowest hover:bg-surface-container transition-colors duration-300 group">
+<div class="mb-12 flex justify-end">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform duration-300" style="font-size: 40px; font-variation-settings: 'FILL' 0;">health_and_beauty</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4 text-right">تجميل الأسنان</h3>
+<p class="font-body-md text-body-md text-secondary text-right">
+                            إعادة تصميم الابتسامة باستخدام قشور الخزف الدقيقة وتبييض متقدم لنتائج طبيعية لا تشوبها شائبة.
+                        </p>
+</div>
+<!-- Service 2 -->
+<div class="border-b border-l border-primary p-8 md:p-12 bg-surface-container-lowest hover:bg-surface-container transition-colors duration-300 group">
+<div class="mb-12 flex justify-end">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform duration-300" style="font-size: 40px; font-variation-settings: 'FILL' 0;">planet</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4 text-right">زراعة الأسنان</h3>
+<p class="font-body-md text-body-md text-secondary text-right">
+                            حلول جراحية دقيقة لتعويض الأسنان المفقودة، مصممة للاندماج التام مع بنية الوجه.
+                        </p>
+</div>
+<!-- Service 3 -->
+<div class="border-b border-l border-primary p-8 md:p-12 bg-surface-container-lowest hover:bg-surface-container transition-colors duration-300 group">
+<div class="mb-12 flex justify-end">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform duration-300" style="font-size: 40px; font-variation-settings: 'FILL' 0;">security</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4 text-right">العناية الوقائية</h3>
+<p class="font-body-md text-body-md text-secondary text-right">
+                            بروتوكولات صيانة دورية للحفاظ على صحة الفم المطلقة ومنع التدهور المستقبلي.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Image Break / Architectural Focus -->
+<section class="w-full border-b border-primary h-[614px] min-h-[400px] relative">
+<div class="absolute inset-0 bg-cover bg-center grayscale w-full h-full" data-alt="A striking black and white architectural photograph of an ultra-minimalist dental clinic waiting room. The space features sharp geometric lines, vast empty space, and harsh structural shadows. A solitary, angular black leather chair sits on a pristine white floor. High-contrast, moody, editorial photography style. Professional lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8J157lSksPo0LB1hQrACSQxLCOtZQ6U3gyeIcy5MF5cVzmhoVCrgCQTJMhgRBjfocS90hbsxEDtxwkGJUBtg2QbjBjG6wyJx7AD75l9hrwGsjrP4rloArcg_SdTz6RYLYXPrpjKnu8AOLle_LvdFmg_OkI-R-nOvSToDaNypgK86GXGbtZM4ZUYoehqXwaL-zzrU_DQ6aNW5PKDjzB-thEQYT0EaRBlA0A7EjNzE0MHyfUGe_CrtWsXwoj1i_Jm2Zh60rP2X1q28')"></div>
+<!-- Overlay to ensure text readability if needed, though strictly we might want it bare -->
+<div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+<span class="font-display-lg text-white opacity-90 text-center px-4">الدقة السريرية</span>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="w-full border-b border-primary py-stack-xl px-margin-mobile md:px-margin-desktop" id="contact">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-5 md:col-start-1 mb-12 md:mb-0">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-8 text-right">تواصل معنا</h2>
+<ul class="strict-list space-y-4 text-right">
+<li class="font-body-md text-body-md text-primary">الرياض، المملكة العربية السعودية</li>
+<li class="font-body-md text-body-md text-primary">+966 11 234 5678</li>
+<li class="font-body-md text-body-md text-primary">info@monolithdental.com</li>
+</ul>
+</div>
+<div class="md:col-span-6 md:col-start-7">
+<form action="#" class="space-y-8" method="POST">
+<div class="relative">
+<label class="font-label-caps text-label-caps text-secondary block text-right mb-2" for="name">الاسم الكامل</label>
+<input class="form-input-minimal font-body-md text-primary" id="name" name="name" required="" type="text"/>
+</div>
+<div class="relative">
+<label class="font-label-caps text-label-caps text-secondary block text-right mb-2" for="email">البريد الإلكتروني</label>
+<input class="form-input-minimal font-body-md text-primary" dir="ltr" id="email" name="email" required="" style="text-align: right;" type="email"/>
+</div>
+<div class="relative">
+<label class="font-label-caps text-label-caps text-secondary block text-right mb-2" for="message">الرسالة أو الاستفسار</label>
+<textarea class="form-input-minimal font-body-md text-primary resize-none" id="message" name="message" required="" rows="4"></textarea>
+</div>
+<div class="flex justify-end pt-4">
+<button class="btn-primary-strict font-label-caps text-label-caps w-full md:w-auto" type="submit">
+                                إرسال الطلب
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-tertiary-container dark:bg-tertiary-container w-full border-t border-primary dark:border-on-surface">
+<div class="flex flex-col items-center justify-center w-full px-margin-desktop py-stack-xl gap-stack-md max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<a class="font-headline-xl text-headline-xl text-on-primary" href="#">
+                Monolith Dental
+            </a>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12 w-full">
+<a class="font-label-caps text-label-caps text-on-primary-container hover:text-white transition-opacity duration-200 opacity-100 hover:opacity-80" href="#">
+                    Legal
+                </a>
+<a class="font-label-caps text-label-caps text-on-primary-container hover:text-white transition-opacity duration-200 opacity-100 hover:opacity-80" href="#">
+                    Privacy Policy
+                </a>
+<a class="font-label-caps text-label-caps text-on-primary-container hover:text-white transition-opacity duration-200 opacity-100 hover:opacity-80" href="#">
+                    Terms of Service
+                </a>
+</div>
+<div class="font-label-caps text-label-caps text-on-primary-container mt-8 border-t border-[#333333] pt-8 w-full text-center">
+                © 2024 Monolith Dental. All Rights Reserved.
+            </div>
+</div>
+</footer>
+</body></html>

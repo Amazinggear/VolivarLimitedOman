@@ -1,0 +1,144 @@
+const fs = require('fs');
+
+const css = `
+@import "tailwindcss";
+
+@theme {
+  --color-secondary-container: #4a4949;
+  --color-primary: #b6c4ff;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-on-secondary: #313030;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-tint: #b6c4ff;
+  --color-on-primary-container: #e5e8ff;
+  --color-primary-container: #0057ff;
+  --color-on-primary: #00277f;
+  --color-surface: #131313;
+  --color-background: #131313;
+  --color-on-background: #e5e2e1;
+  --color-on-surface-variant: #c3c5d9;
+  --color-on-surface: #e5e2e1;
+  --spacing-stack-unit: 8px;
+  --spacing-container-max: 1280px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 80px;
+  --spacing-gutter: 32px;
+  --spacing-section-gap: 120px;
+}
+
+/* Typography Updates */
+@font-face {
+    font-family: 'Cy Bold';
+    src: local('Arial Bold');
+    font-weight: 700;
+}
+
+/* Luxury Tech Minimalism & Glassmorphism Utilities */
+body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    overflow-x: hidden;
+    font-family: 'Alexandria', sans-serif;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    position: relative;
+    z-index: 1;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.glass-card:hover .accent-glow {
+    opacity: 1;
+}
+
+.accent-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, var(--color-primary-container) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -2;
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primary-container);
+    color: var(--color-on-primary-container);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.btn-primary:hover {
+    box-shadow: 0 0 20px rgba(0, 87, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-on-surface);
+    transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, var(--color-primary), #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* WebBay Branding specific */
+.font-en {
+    font-family: 'Cy Bold', 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+.hero-bg {
+    background: radial-gradient(circle at 80% 20%, rgba(0, 87, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
+}
+
+/* Table Styles */
+.comparison-table th, .comparison-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+`;
+
+fs.writeFileSync('app/globals.css', css);
+
+// We should also delete tailwind.config.ts to avoid confusing Tailwind v4
+if (fs.existsSync('tailwind.config.ts')) {
+  fs.unlinkSync('tailwind.config.ts');
+}
+
+console.log('Fixed globals.css for Tailwind v4');
