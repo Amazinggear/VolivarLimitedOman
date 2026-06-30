@@ -33,31 +33,22 @@ const templates = [
     link: "/templates/verdant"
   },
   {
-    id: "outfit",
-    title: "استوديو إبداعي (طابع سينمائي حركي)",
-    category: "Creative Studio",
-    image: "/assets/thumbnails/outfit_hero.svg",
-    desc: "تصميم مذهل بتأثيرات حركية متقدمة وتمرير سلس. مثالي للوكالات الإبداعية، استوديوهات التصميم، والمحافظ الشخصية المتميزة.",
-    colors: ["#EDE4DD", "#FF0001", "#000000"],
-    link: "/templates/outfit"
+    id: "services",
+    title: "منصة الخدمات المهنية (سباك، محامي، كهربائي، صيانة)",
+    category: "Professional Services",
+    image: "/mockups/services_mockup.png",
+    desc: "حل متكامل ومبهر لتقديم كافة الخدمات المهنية وحجز المواعيد (سباكة، محاماة، كهرباء، صيانة عامة). واجهة مستخدم زجاجية فائقة السرعة تتناسب مع مختلف التخصصات.",
+    colors: ["#0057FF", "#1E293B", "#D4AF37"],
+    link: "/templates/oria"
   },
   {
-    id: "ellipse",
-    title: "منصة تقنية (SaaS | طابع هندسي دائري)",
-    category: "Tech & SaaS",
-    image: "/assets/thumbnails/ellipse_hero.svg",
-    desc: "تصميم هندسي دائري أنيق لمنصات SaaS والتقنية. حركات سلسة، تدرجات لونية جذابة، وتجربة مستخدم مستقبلية تخطف الأنفاس.",
-    colors: ["#6366F1", "#8B5CF6", "#0A0A0A"],
-    link: "/templates/ellipse"
-  },
-  {
-    id: "cargo",
-    title: "مكتب هندسي ومعماري (Cargo)",
-    category: "Architecture & Design",
-    image: "/mockups/cargo_mockup.png",
-    desc: "عرض مذهل للمشاريع الهندسية والمعمارية، يعتمد على صور ضخمة وتمرير ناعم جداً لعرض أدق تفاصيل التصميم بأناقة متناهية.",
-    colors: ["#ffffff", "#000000", "#d1d5db"],
-    link: "/templates/cargo"
+    id: "corporate",
+    title: "موقع الشركات والمؤسسات (رائد واحترافي)",
+    category: "Corporate & Enterprise",
+    image: "/mockups/corporate_mockup.png",
+    desc: "تصميم رصين يعكس القوة والمصداقية، مثالي للشركات الكبرى لعرض خدماتها، أعمالها، وقيمها المؤسسية بأبهى صورة.",
+    colors: ["#0F172A", "#00D4B2", "#2563EB"],
+    link: "/templates/aurea"
   }
 ];
 
