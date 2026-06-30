@@ -31,24 +31,6 @@ const templates = [
     desc: "تصميم نقي يعكس الطبيعة، جاهز لبيع المنتجات العضوية بلمسة عصرية.",
     colors: ["#16A34A", "#FDF4FF", "#1C1917"],
     link: "/templates/verdant"
-  },
-  {
-    id: "services",
-    title: "منصة الخدمات المهنية (سباك، محامي، كهربائي، صيانة)",
-    category: "Professional Services",
-    image: "/mockups/services_mockup.png",
-    desc: "حل متكامل ومبهر لتقديم كافة الخدمات المهنية وحجز المواعيد (سباكة، محاماة، كهرباء، صيانة عامة). واجهة مستخدم زجاجية فائقة السرعة تتناسب مع مختلف التخصصات.",
-    colors: ["#0057FF", "#1E293B", "#D4AF37"],
-    link: "/templates/oria"
-  },
-  {
-    id: "corporate",
-    title: "موقع الشركات والمؤسسات (رائد واحترافي)",
-    category: "Corporate & Enterprise",
-    image: "/mockups/corporate_mockup.png",
-    desc: "تصميم رصين يعكس القوة والمصداقية، مثالي للشركات الكبرى لعرض خدماتها، أعمالها، وقيمها المؤسسية بأبهى صورة.",
-    colors: ["#0F172A", "#00D4B2", "#2563EB"],
-    link: "/templates/aurea"
   }
 ];
 
