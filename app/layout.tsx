@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Alexandria, Outfit } from "next/font/google";
 import "./globals.css";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const alexandria = Alexandria({
   subsets: ["arabic", "latin"],
@@ -28,11 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className="scroll-smooth dark overflow-x-hidden" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" className="dark overflow-x-hidden" suppressHydrationWarning>
       <body
         className={`${alexandria.variable} ${outfit.variable} font-alexandria antialiased selection:bg-primary-container selection:text-white overflow-x-hidden`}
       >
-        {children}
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
         <WhatsAppFloat />
       </body>
     </html>

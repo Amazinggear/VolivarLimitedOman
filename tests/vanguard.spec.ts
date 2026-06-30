@@ -12,20 +12,20 @@ test.describe('Vanguard Dental - Lumina Template', () => {
   test('Brand text is visible', async ({ page }) => {
     await page.goto('/templates/lumina');
     const brandContainer = page.locator('header, nav').first();
-    await expect(brandContainer).toContainText('ڤانغارد');
+    await expect(brandContainer).toContainText('لومينا');
   });
 
   test('Navigation links are visible and clickable', async ({ page, isMobile }) => {
     await page.goto('/templates/lumina');
     
     if (isMobile) {
-      const menuBtn = page.locator('button.md\\:hidden').first();
+      const menuBtn = page.locator('button[aria-label="Toggle Menu"]').first();
       await menuBtn.click();
       // Wait a bit for animation
       await page.waitForTimeout(500);
     }
     
-    const navLinks = ['من نحن', 'الخدمات'];
+    const navLinks = ['خدماتنا', 'أطباؤنا'];
     
     for (const linkText of navLinks) {
       // Use .last() or filter by visible since mobile dropdown creates duplicates, or just look for visible ones

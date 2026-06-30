@@ -101,7 +101,7 @@ export default function Footer() {
           </div>
           
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center">
-            <p className="text-[15px] text-gray-500">© {new Date().getFullYear()} Volivar. جميع الحقوق محفوظة.</p>
+            <p className="text-[15px] text-gray-500" suppressHydrationWarning>© {new Date().getFullYear()} Volivar. جميع الحقوق محفوظة.</p>
             <div className="flex gap-6 text-[15px]">
               <a href="#" className="text-gray-500 hover:text-white transition-colors">سياسة الخصوصية</a>
               <a href="#" className="text-gray-500 hover:text-white transition-colors">الشروط والأحكام</a>
