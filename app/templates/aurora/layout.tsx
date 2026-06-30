@@ -30,6 +30,18 @@ export default function AuroraLayout({ children }: { children: React.ReactNode }
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#050505] text-[#F3F3F3] selection:bg-[#C5A059] selection:text-white font-ar leading-relaxed tracking-wide overflow-x-hidden relative flex flex-col">
       {/* Background ambient glow - shared across all Aurora pages */}
@@ -94,62 +106,62 @@ export default function AuroraLayout({ children }: { children: React.ReactNode }
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </header>
 
-      {/* Mobile Drawer Navigation */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute top-full left-0 w-full bg-[#050505]/95 backdrop-blur-lg border-b border-white/5 z-40 max-h-[calc(100vh-80px)] overflow-y-auto shadow-2xl lg:hidden"
-          >
-            <nav className="flex flex-col px-6 py-6 gap-4">
-              {navLinks.map((link, i) => {
-                const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== '/templates/aurora');
-                const isExactHome = pathname === '/templates/aurora' && link.href === '/templates/aurora';
-                const isLinkActive = link.href === '/templates/aurora' ? isExactHome : isActive;
+        {/* Mobile Drawer Navigation */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="absolute top-full left-0 w-full bg-[#050505]/95 backdrop-blur-lg border-b border-white/5 z-40 max-h-[calc(100vh-80px)] overflow-y-auto shadow-2xl lg:hidden"
+            >
+              <nav className="flex flex-col px-6 py-6 gap-4 text-right">
+                {navLinks.map((link, i) => {
+                  const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== '/templates/aurora');
+                  const isExactHome = pathname === '/templates/aurora' && link.href === '/templates/aurora';
+                  const isLinkActive = link.href === '/templates/aurora' ? isExactHome : isActive;
 
-                return (
+                  return (
+                    <Link 
+                      key={i} 
+                      href={link.href} 
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`text-[15px] uppercase tracking-wider font-bold transition-colors py-2 border-b border-white/5 last:border-b-0 hover:text-[#C5A059] ${isLinkActive ? "text-[#C5A059]" : "text-gray-300"}`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+                
+                {/* Mobile Actions in Menu */}
+                <div className="flex flex-col gap-4 mt-4 pt-4 border-t border-white/10 md:hidden">
+                  <div className="flex items-center gap-6 py-2 justify-end">
+                    <button className="text-gray-300 hover:text-[#C5A059] transition-colors flex items-center gap-2 text-sm">
+                      <span>بحث</span> <Search className="w-5 h-5" />
+                    </button>
+                    <Link href="/templates/aurora/shop" onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:text-[#C5A059] transition-colors relative flex items-center gap-2 text-sm">
+                      <span>المتجر</span> <ShoppingCart className="w-5 h-5" />
+                      <span className="bg-[#C5A059] text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center en-text">1</span>
+                    </Link>
+                    <button className="text-gray-300 hover:text-[#C5A059] transition-colors flex items-center gap-2 text-sm">
+                      <span>حسابي</span> <User className="w-5 h-5" />
+                    </button>
+                  </div>
                   <Link 
-                    key={i} 
-                    href={link.href} 
+                    href="/templates/aurora/reserve" 
                     onClick={() => setIsMenuOpen(false)}
-                    className={`text-[15px] uppercase tracking-wider font-bold transition-colors py-2 border-b border-white/5 last:border-b-0 hover:text-[#C5A059] ${isLinkActive ? "text-[#C5A059]" : "text-gray-300"}`}
+                    className="w-full text-center py-3 rounded-full border border-[#C5A059] text-[#C5A059] text-[14px] font-bold hover:bg-[#C5A059] hover:text-black transition-all duration-300"
                   >
-                    {link.name}
+                    احجز طاولة
                   </Link>
-                );
-              })}
-              
-              {/* Mobile Actions in Menu */}
-              <div className="flex flex-col gap-4 mt-4 pt-4 border-t border-white/10 md:hidden">
-                <div className="flex items-center gap-6 py-2">
-                  <button className="text-gray-300 hover:text-[#C5A059] transition-colors flex items-center gap-2 text-sm">
-                    <Search className="w-5 h-5" /> <span>بحث</span>
-                  </button>
-                  <Link href="/templates/aurora/shop" onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:text-[#C5A059] transition-colors relative flex items-center gap-2 text-sm">
-                    <ShoppingCart className="w-5 h-5" /> <span>المتجر</span>
-                    <span className="bg-[#C5A059] text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center en-text">1</span>
-                  </Link>
-                  <button className="text-gray-300 hover:text-[#C5A059] transition-colors flex items-center gap-2 text-sm">
-                    <User className="w-5 h-5" /> <span>حسابي</span>
-                  </button>
                 </div>
-                <Link 
-                  href="/templates/aurora/reserve" 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="w-full text-center py-3 rounded-full border border-[#C5A059] text-[#C5A059] text-[14px] font-bold hover:bg-[#C5A059] hover:text-black transition-all duration-300"
-                >
-                  احجز طاولة
-                </Link>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
 
       {/* Main Content */}
       <div className="flex-1 relative z-10 w-full">

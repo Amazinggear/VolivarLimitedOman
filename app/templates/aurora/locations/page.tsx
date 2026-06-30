@@ -85,6 +85,28 @@ export default function LocationsPage() {
           </motion.div>
         ))}
       </div>
+
+      {/* Stats Section */}
+      <section className="max-w-[1200px] mx-auto mt-24 border-t border-white/5 pt-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="flex flex-col gap-2">
+            <span className="text-[40px] md:text-[50px] font-bold text-[#C5A059] en-text">8+</span>
+            <span className="text-gray-400 text-sm">سنوات من الإبداع</span>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-[40px] md:text-[50px] font-bold text-[#C5A059] en-text">1,500+</span>
+            <span className="text-gray-400 text-sm">كوب يومياً</span>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-[40px] md:text-[50px] font-bold text-[#C5A059] en-text">2</span>
+            <span className="text-gray-400 text-sm">فروع رئيسية</span>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-[40px] md:text-[50px] font-bold text-[#C5A059] en-text">24/7</span>
+            <span className="text-gray-400 text-sm">دعم متكامل</span>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

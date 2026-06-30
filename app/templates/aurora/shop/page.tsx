@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ShoppingBag, Star, ArrowLeft } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ShoppingBag, Star } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const products = [
   {
@@ -11,7 +12,7 @@ const products = [
     desc: "مزيج حصري من حبوب إثيوبيا وكولومبيا، بنكهات الشوكولاتة والكراميل.",
     price: "85 ر.س",
     weight: "250g",
-    image: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 2,
@@ -27,7 +28,7 @@ const products = [
     desc: "قمع تقطير سيراميك مع طلاء ذهبي داخلي لحفظ الحرارة بشكل مثالي.",
     price: "145 ر.س",
     weight: "Equipment",
-    image: "https://images.unsplash.com/photo-1544787219-7f47ccb7fae6?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 4,
@@ -40,6 +41,15 @@ const products = [
 ];
 
 export default function ShopPage() {
+  const [showToast, setShowToast] = useState(false);
+
+  const handleAddToCart = () => {
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2000);
+  };
+
   return (
     <main className="py-20 px-6 md:px-16 min-h-screen">
       <motion.div 
@@ -93,7 +103,11 @@ export default function ShopPage() {
               
               <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
                 <span className="text-[#C5A059] font-bold text-xl en-text">{product.price}</span>
-                <button className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-[#C5A059] hover:text-black transition-colors">
+                <button 
+                  onClick={handleAddToCart}
+                  aria-label="أضف إلى السلة"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-[#C5A059] hover:text-black transition-colors"
+                >
                   <ShoppingBag className="w-5 h-5" />
                 </button>
               </div>
@@ -101,6 +115,21 @@ export default function ShopPage() {
           </motion.div>
         ))}
       </div>
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, x: "-50%" }}
+            animate={{ opacity: 1, y: 0, x: "-50%" }}
+            exit={{ opacity: 0, y: 50, x: "-50%" }}
+            className="fixed bottom-10 left-1/2 bg-zinc-900 border border-[#C5A059] text-white px-6 py-3 rounded-full flex items-center gap-3 shadow-lg z-50 font-bold"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
+            تم إضافة المنتج للسلة
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
