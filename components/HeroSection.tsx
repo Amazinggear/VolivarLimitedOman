@@ -11,7 +11,6 @@ export default function HeroSection() {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#004ee7]/20 blur-[120px] rounded-full pointer-events-none mix-blend-screen z-0" />
       
       {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-[1280px] mx-auto w-full flex flex-col lg:flex-row-reverse items-center justify-between gap-12 z-10 relative mt-10">
@@ -36,7 +35,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-[18px] md:text-[22px] text-on-surface-variant max-w-xl font-medium leading-relaxed">
-            <span className="en-text font-bold text-white">Volivar</span> يبني مواقع احترافية للشركات، المتاجر، والعيادات بقوة، سرعة، وبدون تعقيد. انطلق رقمياً اليوم بثقة.
+            مواقع احترافية مجهزة ومستضافة بالكامل لشركتك أو عيادتك أو متجرك خلال 72 ساعة فقط.
           </p>
 
           <div className="flex flex-col sm:flex-row-reverse gap-5 mt-6 w-full sm:w-auto">

@@ -36,7 +36,7 @@ const products = [
     desc: "كوب أسود مطفي مع شعار أورورا، يحفظ الحرارة لمدة 6 ساعات.",
     price: "65 ر.س",
     weight: "350ml",
-    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1517256064527-09c53b2d0c6b?q=80&w=800&auto=format&fit=crop"
   }
 ];
 

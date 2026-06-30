@@ -418,7 +418,7 @@ export default function LuminaHomePage() {
           >
             <div className="relative aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl shadow-[#0284C7]/20">
               <Image
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=1200&auto=format&fit=crop"
                 alt="عيادة لومينا"
                 fill
                 className="object-cover"

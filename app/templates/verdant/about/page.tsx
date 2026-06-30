@@ -192,7 +192,7 @@ export default function AboutPage() {
             <motion.div variants={fadeUp} className="group">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-6">
                 <Image
-                  src="/images/verdant/emma_hartley.png"
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop"
                   alt="إيما هارتلي"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -211,7 +211,7 @@ export default function AboutPage() {
             <motion.div variants={fadeUp} className="group">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-6">
                 <Image
-                  src="/images/verdant/james_verdant.png"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
                   alt="جيمس ڤيردانت"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -233,12 +233,58 @@ export default function AboutPage() {
       {/* ── CERTIFICATIONS ── */}
       <section className="py-16 border-t border-stone-200 bg-[#fcfbf5]">
         <div className="max-w-[1280px] mx-auto px-5 md:px-10">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
-            {["عضوي معتمد من USDA", "شهادة Leaping Bunny", "معتمد من EWG", "شركة B Corp معتمدة"].map((cert, idx) => (
-              <div key={idx} className="bg-stone-100 px-6 py-4 rounded-lg flex items-center justify-center">
-                <span className="font-bold text-stone-500 text-sm tracking-wider uppercase">{cert}</span>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center items-center">
+            
+            {/* USDA Organic */}
+            <div className="flex flex-col items-center gap-3">
+              <svg className="w-16 h-16 text-[#6a7c5a]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="50" cy="50" r="45" />
+                <path d="M35 60 C35 45 45 35 65 35" strokeWidth="2.5" />
+                <path d="M35 60 C50 60 65 50 65 35" strokeWidth="2.5" />
+                <path d="M50 45 L50 65" />
+                <text x="50" y="27" textAnchor="middle" fontSize="9" fontWeight="bold" fill="currentColor" stroke="none">USDA</text>
+                <text x="50" y="80" textAnchor="middle" fontSize="8" fontWeight="bold" fill="currentColor" stroke="none">ORGANIC</text>
+              </svg>
+              <span className="font-bold text-stone-600 text-xs tracking-wider uppercase text-center">عضوي معتمد من USDA</span>
+            </div>
+
+            {/* Leaping Bunny */}
+            <div className="flex flex-col items-center gap-3">
+              <svg className="w-16 h-16 text-[#6a7c5a]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="50" cy="50" r="45" />
+                <path d="M35 58 C32 50 35 42 45 42 C50 42 53 47 58 47 C63 47 68 42 72 50 C68 58 55 58 35 58 Z" fill="none" />
+                <path d="M42 42 C40 32 46 28 48 35" />
+                <path d="M48 42 C48 32 54 28 56 35" />
+                <circle cx="32" cy="38" r="1.5" fill="currentColor" stroke="none" />
+                <circle cx="68" cy="34" r="2" fill="currentColor" stroke="none" />
+                <circle cx="62" cy="27" r="1" fill="currentColor" stroke="none" />
+              </svg>
+              <span className="font-bold text-stone-600 text-xs tracking-wider uppercase text-center">شهادة Leaping Bunny</span>
+            </div>
+
+            {/* EWG Verified */}
+            <div className="flex flex-col items-center gap-3">
+              <svg className="w-16 h-16 text-[#6a7c5a]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="50" cy="50" r="45" />
+                <text x="50" y="46" textAnchor="middle" fontSize="13" fontWeight="900" fill="currentColor" stroke="none">EWG</text>
+                <rect x="25" y="55" width="50" height="15" rx="4" fill="currentColor" stroke="none" />
+                <text x="50" y="66" textAnchor="middle" fontSize="7" fontWeight="bold" fill="white" stroke="none">VERIFIED</text>
+              </svg>
+              <span className="font-bold text-stone-600 text-xs tracking-wider uppercase text-center">معتمد من EWG</span>
+            </div>
+
+            {/* B Corp */}
+            <div className="flex flex-col items-center gap-3">
+              <svg className="w-16 h-16 text-[#6a7c5a]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <circle cx="50" cy="50" r="45" />
+                <circle cx="45" cy="50" r="18" strokeWidth="3" />
+                <path d="M45 40 L60 40 C64 40 66 43 66 46 C66 49 63 51 59 51 L45 51" />
+                <path d="M45 51 L60 51 C64 51 66 54 66 57 C66 60 63 62 59 62 L45 62" />
+                <path d="M28 72 L72 28" strokeWidth="3.5" />
+              </svg>
+              <span className="font-bold text-stone-600 text-xs tracking-wider uppercase text-center">شركة B Corp معتمدة</span>
+            </div>
+
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import { Layers, UploadCloud, Rocket } from "lucide-react";
 import Image from "next/image";
 
@@ -10,21 +10,21 @@ export default function HowItWorks() {
     {
       id: "01",
       title: "اختر نوع نشاطك",
-      description: "حدد النموذج الأقرب لمجال عملك من مكتبتنا المتنوعة والمصممة بعناية فائقة.",
+      description: "حدد النموذج الأنسب لمجال عملك من مكتبتنا المصممة بعناية فائقة.",
       icon: <Layers className="w-5 h-5 text-white" />,
       image: "/choose_template.png"
     },
     {
       id: "02",
       title: "أرسل الشعار والمعلومات",
-      description: "زودنا بتفاصيلك، شعارك، وصورك لنقوم بتخصيص الموقع بالكامل ليعكس هويتك.",
+      description: "زودنا بشعارك ومعلوماتك لنقوم بتخصيص الموقع بالكامل ليعكس هويتك.",
       icon: <UploadCloud className="w-5 h-5 text-white" />,
       image: "/upload_assets.png"
     },
     {
       id: "03",
       title: "استلم موقعك",
-      description: "موقعك جاهز ومباشر على الإنترنت خلال 72 ساعة فقط. مستعد لاستقبال عملائك.",
+      description: "موقعك جاهز ومباشر على الإنترنت خلال 72 ساعة فقط، مستعد لاستقبال عملائك.",
       icon: <Rocket className="w-5 h-5 text-white" />,
       image: "/launch_site.png"
     }
@@ -41,6 +41,11 @@ export default function HowItWorks() {
     damping: 30,
     restDelta: 0.001
   });
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   return (
     <section id="how-it-works" className="py-[120px] px-5 md:px-20 bg-background relative overflow-hidden" ref={containerRef}>
@@ -80,7 +85,7 @@ export default function HowItWorks() {
           {/* The Glowing Laser (Foreground Line) */}
           <motion.div 
             className="absolute top-0 left-[20px] md:left-1/2 md:-translate-x-1/2 w-1 bg-gradient-to-b from-primary via-[#00c3ff] to-primary rounded-full shadow-[0_0_15px_rgba(0,87,255,0.8)] origin-top"
-            style={{ scaleY: smoothProgress, bottom: 0 }}
+            style={{ scaleY: isMobile ? 1 : smoothProgress, bottom: 0 }}
           />
 
           <div className="flex flex-col gap-20 md:gap-32 w-full relative z-10">

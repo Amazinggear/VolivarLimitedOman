@@ -25,7 +25,6 @@ const navLinks = [
   { name: "العناية بالجسم", href: "/templates/verdant/body-care" },
   { name: "العناية بالشعر", href: "/templates/verdant/hair-care" },
   { name: "من نحن", href: "/templates/verdant/about" },
-  { name: "المجلة", href: "/templates/verdant/journal" },
 ];
 
 const drawerVariants: Variants = {
@@ -303,7 +302,6 @@ export default function VerdantLayout({
               <ul className="space-y-3">
                 {[
                   { label: "من نحن", href: "/templates/verdant/about" },
-                  { label: "المجلة", href: "/templates/verdant/journal" },
                   { label: "الاستدامة", href: "/templates/verdant" },
                   { label: "الصحافة", href: "/templates/verdant" },
                 ].map((item) => (
