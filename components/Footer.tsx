@@ -90,9 +90,9 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-400 hover:text-primary transition-colors flex items-center gap-3 justify-center md:justify-start" href="mailto:hello@volivar.com" dir="ltr">
+                  <a className="text-gray-400 hover:text-primary transition-colors flex items-center gap-3 justify-center md:justify-start" href="mailto:shopvolivar@gmail.com" dir="ltr">
                     <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="en-text">hello@volivar.com</span>
+                    <span className="en-text">shopvolivar@gmail.com</span>
                   </a>
                 </li>
               </ul>
