@@ -94,7 +94,7 @@ export default function LuminaContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group bg-[#F8FAFC] rounded-3xl p-8 border border-[#0F172A]/5 hover:border-[#0284C7]/30 hover:bg-white hover:shadow-xl hover:shadow-[#0284C7]/10 transition-all duration-500 text-center"
+              className="group bg-[#F8FAFC] rounded-3xl p-8 border border-[#0F172A]/5 hover:border-[#0284C7]/30 hover:bg-white hover:shadow-xl hover:shadow-[#0284C7]/10 transition-[border-color,box-shadow,background-color] duration-500 text-center"
             >
               <div className="w-16 h-16 rounded-2xl bg-[#0284C7]/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
                 <info.icon className="w-8 h-8 text-[#0284C7]" />

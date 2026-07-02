@@ -15,6 +15,7 @@
   --color-on-background: #e5e2e1;
   --color-on-surface-variant: #c3c5d9;
   --color-on-surface: #e5e2e1;
+  --color-surface-container-high: #2a2a2a;
   --spacing-stack-unit: 8px;
   --spacing-container-max: 1280px;
   --spacing-margin-mobile: 20px;
@@ -31,6 +32,13 @@ body {
     color: var(--color-on-background);
     overflow-x: hidden;
     font-family: var(--font-alexandria), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force hardware acceleration on animated elements */
+.will-change-transform {
+    will-change: transform;
 }
 
 .glass-card {
@@ -126,4 +134,103 @@ body {
 }
 .comparison-table tr:last-child td {
     border-bottom: none;
+}
+
+/* === MOBILE PERFORMANCE OPTIMIZATIONS === */
+
+/* Pricing card spinning animation — disabled on mobile to save GPU */
+.pricing-spin-animation {
+    animation: spin 3s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .pricing-spin-animation {
+        animation: none;
+        background: linear-gradient(135deg, transparent, #0057ff, transparent) !important;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .pricing-spin-animation {
+        animation: none !important;
+    }
+}
+
+/* Content visibility for below-fold sections — skip rendering until near viewport */
+@media (max-width: 768px) {
+    #templates,
+    #benefits,
+    #how-it-works,
+    #pricing {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 800px;
+    }
+
+    /* Strict Mobile Performance Guards */
+    .backdrop-blur-md, 
+    .backdrop-blur-lg, 
+    .backdrop-blur-xl {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .mix-blend-screen {
+        mix-blend-mode: normal !important;
+    }
+
+    * {
+        /* Reduce transition duration on mobile to feel snappier and reduce GPU time */
+        --tw-transition-duration: 200ms !important;
+    }
+}
+
+/* Logo Sizing & Scaling (to crop transparent borders and make it really big) */
+.logo-zoom {
+  transform: scale(2.8) !important;
+  transform-origin: center !important;
+}
+
+.logo-zoom-hover {
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.group:hover .logo-zoom-hover {
+  transform: scale(3.0) !important;
+}
+
+/* Floating animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes float-slower {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float-slower 8s ease-in-out infinite;
 }

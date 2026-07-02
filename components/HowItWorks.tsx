@@ -10,21 +10,21 @@ export default function HowItWorks() {
     {
       id: "01",
       title: "اختر نوع نشاطك",
-      description: "حدد النموذج الأنسب لمجال عملك من مكتبتنا المصممة بعناية فائقة.",
+      description: "حدد النموذج الأنسب لعملك.",
       icon: <Layers className="w-5 h-5 text-white" />,
       image: "/choose_template.png"
     },
     {
       id: "02",
       title: "أرسل الشعار والمعلومات",
-      description: "زودنا بشعارك ومعلوماتك لنقوم بتخصيص الموقع بالكامل ليعكس هويتك.",
+      description: "زودنا بشعارك ومعلوماتك لتخصيص موقعك.",
       icon: <UploadCloud className="w-5 h-5 text-white" />,
       image: "/upload_assets.png"
     },
     {
       id: "03",
       title: "استلم موقعك",
-      description: "موقعك جاهز ومباشر على الإنترنت خلال 72 ساعة فقط، مستعد لاستقبال عملائك.",
+      description: "موقعك جاهز ومباشر خلال 72 ساعة.",
       icon: <Rocket className="w-5 h-5 text-white" />,
       image: "/launch_site.png"
     }
@@ -48,20 +48,20 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section id="how-it-works" className="py-[120px] px-5 md:px-20 bg-background relative overflow-hidden" ref={containerRef}>
+    <section id="how-it-works" className="py-16 sm:py-20 md:py-[120px] px-4 sm:px-5 md:px-20 bg-gradient-to-b from-[#04060f] via-[#0a122e] to-[#020308] relative overflow-hidden" ref={containerRef}>
       
-      {/* Background Ambient Effects */}
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-primary-container/10 rounded-full blur-[150px] pointer-events-none" />
+      {/* Background Ambient Effects — reduced on mobile */}
+      <div className="absolute top-1/4 left-0 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[500px] bg-primary/5 rounded-full blur-[80px] sm:blur-[120px] md:blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[500px] bg-primary-container/10 rounded-full blur-[80px] sm:blur-[120px] md:blur-[150px] pointer-events-none" />
 
       <div className="max-w-[1000px] mx-auto relative z-10">
         
-        <div className="text-center mb-24 relative z-20">
+        <div className="text-center mb-12 sm:mb-16 md:mb-24 relative z-20">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[40px] md:text-[56px] font-bold mb-6 text-on-surface tracking-tight"
+            className="text-[28px] sm:text-[36px] md:text-[56px] font-bold mb-4 sm:mb-6 text-on-surface tracking-tight"
           >
             كيف يعمل <span className="en-text text-primary font-black">Volivar</span>؟
           </motion.h2>
@@ -70,14 +70,14 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[20px] text-on-surface-variant max-w-2xl mx-auto"
+            className="text-[16px] sm:text-[18px] md:text-[20px] text-on-surface-variant max-w-2xl mx-auto"
           >
-            مسار واضح وسريع يوصلك للنجاح الرقمي بثلاث خطوات فقط.
+            ثلاث خطوات لنجاحك الرقمي.
           </motion.p>
         </div>
 
         {/* Sticky Laser Timeline Area */}
-        <div className="relative pt-10 pb-20 md:py-20 flex flex-col items-center">
+        <div className="relative pt-6 pb-10 sm:pt-8 sm:pb-16 md:py-20 flex flex-col items-center">
           
           {/* The Track (Background Line) */}
           <div className="absolute top-0 bottom-0 left-[20px] md:left-1/2 md:-translate-x-1/2 w-1 bg-surface-container rounded-full" />
@@ -88,48 +88,55 @@ export default function HowItWorks() {
             style={{ scaleY: isMobile ? 1 : smoothProgress, bottom: 0 }}
           />
 
-          <div className="flex flex-col gap-20 md:gap-32 w-full relative z-10">
+          <div className="flex flex-col gap-12 sm:gap-16 md:gap-32 w-full relative z-10">
             {steps.map((step, idx) => {
               const isEven = idx % 2 === 0;
               return (
-                <div key={step.id} className={`flex w-full items-center ${isEven ? 'md:justify-start' : 'md:justify-end'} pl-14 md:pl-0 relative`}>
+                <div key={step.id} className={`flex w-full items-center ${isEven ? 'md:justify-start' : 'md:justify-end'} pl-12 sm:pl-14 md:pl-0 relative`}>
                   
                   {/* Step Node (Circle on Timeline) */}
                   <motion.div 
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
-                    viewport={{ margin: "-200px", once: true }}
-                    className="absolute left-[8px] md:left-1/2 md:-translate-x-1/2 w-7 h-7 rounded-full bg-background border-[3px] border-primary flex items-center justify-center shadow-[0_0_20px_rgba(0,87,255,0.5)] z-20"
+                    viewport={{ margin: "-100px", once: true }}
+                    className="absolute left-[8px] md:left-1/2 md:-translate-x-1/2 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-background border-[3px] border-primary flex items-center justify-center shadow-[0_0_20px_rgba(0,87,255,0.5)] z-20"
                   >
-                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary" />
                   </motion.div>
 
                   {/* Step Content Card */}
                   <motion.div 
-                    initial={{ opacity: 0, x: isEven ? -50 : 50, rotateY: isEven ? -10 : 10 }}
-                    whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                    viewport={{ margin: "-150px", once: true }}
+                    initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ margin: "-80px", once: true }}
                     transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                    className={`w-full md:w-[45%] bg-surface-container-low border border-white/5 rounded-[2rem] p-8 md:p-10 shadow-2xl relative overflow-hidden group perspective-[1000px]`}
+                    className="w-full md:w-[45%] bg-[#12152a]/50 backdrop-blur-md border border-white/[0.05] rounded-2xl sm:rounded-[2rem] p-5 sm:p-7 md:p-10 shadow-2xl relative overflow-hidden group"
                   >
                     {/* The Background Generated Image to add life */}
-                    <div className="absolute inset-0 opacity-40 mix-blend-overlay transition-transform duration-700 group-hover:scale-105 pointer-events-none -z-10">
-                      <Image src={step.image} alt={step.title} fill className="object-cover" />
+                    <div className="absolute inset-0 opacity-30 sm:opacity-40 mix-blend-overlay transition-transform duration-700 group-hover:scale-105 pointer-events-none -z-10">
+                      <Image 
+                        src={step.image} 
+                        alt={step.title} 
+                        fill 
+                        sizes="(max-width: 768px) 85vw, 45vw"
+                        loading="lazy"
+                        className="object-cover" 
+                      />
                     </div>
                     {/* Dark gradient overlay so text remains perfectly readable */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/90 to-surface-container-low/60 -z-10 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#12152a] via-[#12152a]/90 to-[#12152a]/60 -z-10 pointer-events-none" />
 
-                    <div className="flex justify-between items-start mb-6 relative z-10">
-                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(0,87,255,0.6)] group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex justify-between items-start mb-4 sm:mb-6 relative z-10">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(0,87,255,0.6)] group-hover:scale-110 transition-transform duration-300">
                         {step.icon}
                       </div>
-                      <span className="text-[60px] md:text-[80px] font-black en-text text-white/5 leading-none select-none tracking-tighter -mt-4">
+                      <span className="text-[40px] sm:text-[60px] md:text-[80px] font-black en-text text-white/5 leading-none select-none tracking-tighter -mt-2 sm:-mt-4">
                         {step.id}
                       </span>
                     </div>
                     <div className="relative z-10">
-                      <h3 className="text-[24px] md:text-[28px] font-bold text-white mb-4 drop-shadow-md">{step.title}</h3>
-                      <p className="text-[16px] md:text-[18px] text-on-surface-variant leading-relaxed">
+                      <h3 className="text-[20px] sm:text-[24px] md:text-[28px] font-bold text-white mb-2 sm:mb-4 drop-shadow-md">{step.title}</h3>
+                      <p className="text-[14px] sm:text-[16px] md:text-[18px] text-on-surface-variant leading-relaxed">
                         {step.description}
                       </p>
                     </div>

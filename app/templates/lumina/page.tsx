@@ -263,8 +263,9 @@ export default function LuminaHomePage() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -4 }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="group relative bg-[#F8FAFC] rounded-3xl p-8 border border-[#0F172A]/5 hover:border-[#0284C7]/30 hover:bg-white hover:shadow-xl hover:shadow-[#0284C7]/10 transition-all duration-500 hover:-translate-y-1"
+                className="group relative bg-[#F8FAFC] rounded-3xl p-8 border border-[#0F172A]/5 hover:border-[#0284C7]/30 hover:bg-white hover:shadow-xl hover:shadow-[#0284C7]/10 transition-[border-color,box-shadow,background-color] duration-500"
               >
                 <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110"

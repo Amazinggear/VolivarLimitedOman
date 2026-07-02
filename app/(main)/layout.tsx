@@ -19,11 +19,10 @@ export default function MainLayout({
       {/* Subtle footer glow removed for professional look */}
       
       <div className="max-w-[1280px] mx-auto px-5 md:px-20 flex flex-col items-center relative z-10">
-        <a className="flex flex-col items-center gap-4 mb-6" href="#">
-          <div className="relative w-20 h-20 overflow-hidden rounded-2xl">
-            <Image src="/logo.webp" alt="Volivar Logo" fill className="object-cover" />
+        <a className="flex flex-col items-center mb-6" href="#">
+          <div className="relative w-80 h-20 overflow-hidden">
+            <Image src="/logo.png" alt="Volivar Logo" fill className="object-contain logo-zoom" />
           </div>
-          <span className="text-[40px] font-bold tracking-tight en-text text-on-surface" dir="ltr">Volivar</span>
         </a>
         <p className="text-[28px] en-text text-primary mb-12" dir="ltr">Websites Delivered Fast.</p>
         <div className="flex gap-6 mb-12">

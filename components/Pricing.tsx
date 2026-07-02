@@ -1,26 +1,20 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { CheckCircle2, Star, Plus } from "lucide-react";
+import { CheckCircle2, Star } from "lucide-react";
 import { useRef, useState } from "react";
 
 export default function Pricing() {
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-100px" });
 
-  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
-
-  const toggleAddon = (id: string) => {
-    setSelectedAddons(prev => 
-      prev.includes(id) ? prev.filter(a => a !== id) : [...prev, id]
-    );
-  };
+  const [selectedHosting, setSelectedHosting] = useState<string>("basic");
 
   const plans = [
     {
       name: "Starter",
-      price: "49",
-      monthly: "+ 5 ريال شهرياً",
+      originalPrice: 79,
+      price: 59,
       features: [
         "صفحة هبوط احترافية",
         "استضافة ونطاق مجاني",
@@ -31,8 +25,8 @@ export default function Pricing() {
     },
     {
       name: "Business",
-      price: "99",
-      monthly: "+ 10 ريال شهرياً",
+      originalPrice: 149,
+      price: 99,
       features: [
         "موقع متعدد الصفحات",
         "ربط واتساب والخرائط",
@@ -44,8 +38,8 @@ export default function Pricing() {
     },
     {
       name: "Pro",
-      price: "199",
-      monthly: "+ 20 ريال شهرياً",
+      originalPrice: 299,
+      price: 199,
       features: [
         "تصميم مخصص بالكامل",
         "متجر إلكتروني متكامل",
@@ -57,12 +51,40 @@ export default function Pricing() {
     }
   ];
 
-  const addons = [
-    { id: "seo", title: "تحسين SEO متقدم", price: "40", icon: "🚀" },
-    { id: "lang", title: "لغة إضافية", price: "30", icon: "🌍" },
-    { id: "logo", title: "تصميم شعار احترافي", price: "50", icon: "🎨" },
-    { id: "copy", title: "كتابة محتوى إبداعي", price: "45", icon: "✍️" },
+  const hostingPlans = [
+    {
+      id: "basic",
+      name: "أساسي",
+      price: "10",
+      currency: "ر.ع",
+      features: "استضافة، أمان، دعم فني",
+    },
+    {
+      id: "advanced",
+      name: "متقدم",
+      price: "20",
+      currency: "ر.ع",
+      features: "تعديلات شهرية، أولوية الدعم، نسخ احتياطي",
+    }
   ];
+
+  const handleOrder = (plan: { name: string; price: number }) => {
+    const selectedHostingPlan = hostingPlans.find(h => h.id === selectedHosting);
+    const hostingName = selectedHostingPlan ? selectedHostingPlan.name : "بدون استضافة";
+    const hostingPrice = selectedHostingPlan ? parseInt(selectedHostingPlan.price) : 0;
+    const total = plan.price + hostingPrice;
+    
+    const messageText = `مرحبا Volivar ! أود طلب الباقة التالية:
+- الباقة: ${plan.name} (${plan.price} ر.ع)
+- الاستضافة والصيانة: ${hostingName} (${hostingPrice} ر.ع)
+--------------------------------------
+الإجمالي: ${total} ر.ع.`;
+
+    const phone = "96894789593";
+    const encoded = encodeURIComponent(messageText);
+    const whatsappUrl = `https://wa.me/${phone}?text=${encoded}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
     <motion.section 
@@ -73,31 +95,32 @@ export default function Pricing() {
         color: isInView ? "#111111" : "#e5e2e1"
       }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="py-[140px] px-5 md:px-20 relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-[140px] px-4 sm:px-5 md:px-20 relative overflow-hidden"
     >
       <div className="max-w-[1280px] mx-auto relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 sm:mb-14 md:mb-20">
           <motion.h2 
             animate={{ color: isInView ? "#000000" : "#ffffff" }}
-            className="text-[36px] md:text-[48px] font-bold mb-6"
+            className="text-[28px] sm:text-[36px] md:text-[48px] font-bold mb-4 sm:mb-6"
           >
             باقات شفافة، <span className="text-primary font-black">بدون مفاجآت</span>
           </motion.h2>
           <motion.p 
             animate={{ color: isInView ? "#4b5563" : "#c3c5d9" }}
-            className="text-[18px] max-w-2xl mx-auto"
+            className="text-[15px] sm:text-[16px] md:text-[18px] max-w-2xl mx-auto"
           >
-            استثمارك الرقمي يبدأ من هنا. اختر الباقة التي تناسب حجم طموحك، وسنتكفل بالباقي.
+            اختر الباقة المناسبة لك.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8 items-center mb-12 sm:mb-16 md:mb-20">
           {plans.map((plan, idx) => (
             <div key={idx} className={`relative group ${plan.highlight ? 'z-20' : 'z-10'}`}>
               
-              {/* Static Border + Animated Rotating Highlight */}
-              <div className={`absolute -inset-[2px] rounded-[2.5rem] overflow-hidden pointer-events-none transition-all duration-300 ${isInView ? 'bg-gray-200' : 'bg-white/10'} ${plan.highlight ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'}`}>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square bg-[conic-gradient(from_0deg,transparent_0_270deg,#0057ff_360deg)] animate-[spin_3s_linear_infinite]" />
+              {/* Static Border + Animated Rotating Highlight — animation disabled on mobile via CSS */}
+              <div className={`absolute -inset-[2px] rounded-2xl sm:rounded-[2.5rem] overflow-hidden pointer-events-none transition-all duration-300 ${isInView ? 'bg-gray-200' : 'bg-white/10'} ${plan.highlight ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'}`}>
+                <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square bg-[conic-gradient(from_0deg,transparent_0_270deg,#0057ff_360deg)] pricing-spin-animation" />
+                <div className="sm:hidden absolute inset-0 bg-primary/20" />
               </div>
               
               {/* Inner Card */}
@@ -115,7 +138,7 @@ export default function Pricing() {
                     ? (plan.highlight ? "#ffffff" : "#f8fafc") 
                     : (plan.highlight ? "#111111" : "#1a1a1a"),
                 }}
-                className={`p-10 flex flex-col rounded-[2.5rem] relative transition-shadow duration-300 h-full w-full border-[1px] border-transparent`}
+                className="p-6 sm:p-8 md:p-10 flex flex-col rounded-2xl sm:rounded-[2.5rem] relative transition-shadow duration-300 h-full w-full border-[1px] border-transparent"
                 style={{
                   boxShadow: plan.highlight 
                     ? (isInView ? "0 40px 80px -20px rgba(0,87,255,0.15)" : "0 0 50px rgba(0,87,255,0.15)")
@@ -123,15 +146,15 @@ export default function Pricing() {
                 }}
               >
                 {plan.highlight && (
-                  <div className="absolute -top-5 right-10 bg-gradient-to-r from-primary to-blue-400 text-white font-bold text-[14px] px-6 py-2 rounded-full shadow-[0_10px_20px_rgba(0,87,255,0.3)] flex items-center gap-2 z-30">
-                    <Star className="w-4 h-4 fill-white" />
+                  <div className="absolute -top-4 sm:-top-5 right-6 sm:right-10 bg-gradient-to-r from-primary to-blue-400 text-white font-bold text-[12px] sm:text-[14px] px-4 sm:px-6 py-1.5 sm:py-2 rounded-full shadow-[0_10px_20px_rgba(0,87,255,0.3)] flex items-center gap-1.5 sm:gap-2 z-30">
+                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white" />
                     الأكثر طلباً
                   </div>
                 )}
                 
                 <motion.h3 
                   animate={{ color: plan.highlight ? "#004de6" : (isInView ? "#0f172a" : "#ffffff") }}
-                  className="text-[36px] font-black mb-2 en-text text-left relative z-10" 
+                  className="text-[28px] sm:text-[32px] md:text-[36px] font-black mb-2 en-text text-left relative z-10" 
                   dir="ltr"
                 >
                   {plan.name}
@@ -140,25 +163,38 @@ export default function Pricing() {
                 <motion.div 
                   animate={{ borderColor: isInView ? "#e2e8f0" : "rgba(255,255,255,0.1)" }}
                   transition={{ duration: 0.4 }}
-                  className="mb-8 pb-8 border-b relative z-10"
+                  className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b relative z-10 flex flex-col gap-2"
                 >
-                  <div className={`flex items-end gap-2 font-black ${plan.highlight ? 'text-[#004de6]' : (isInView ? 'text-[#004de6]' : 'text-primary')}`}>
-                    <span className="text-[64px] leading-none tracking-tight">{plan.price}</span>
-                    <motion.span animate={{ color: isInView ? "#475569" : "#94a3b8" }} className="text-[18px] mb-2 font-bold">ريال تجهيز</motion.span>
+                  {/* Original Price (with line-through) */}
+                  <div className="flex items-center gap-1 text-[16px] sm:text-[18px] font-bold opacity-50 line-through">
+                    <span>{plan.originalPrice}</span>
+                    <span>ر.ع</span>
                   </div>
-                  <motion.div animate={{ color: isInView ? "#334155" : "#cbd5e1" }} className="mt-4 font-bold text-[16px] flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${plan.highlight ? 'bg-[#004de6]' : (isInView ? 'bg-[#004de6]' : 'bg-primary/50')}`} />
-                    {plan.monthly}
-                  </motion.div>
+
+                  {/* Discounted Price & Badge */}
+                  <div className="flex items-center justify-between w-full">
+                    <div className={`flex items-end gap-1.5 font-black ${plan.highlight ? 'text-[#004de6]' : (isInView ? 'text-[#004de6]' : 'text-primary')}`}>
+                      <span className="text-[48px] sm:text-[56px] md:text-[64px] leading-none tracking-tight">
+                        {plan.price}
+                      </span>
+                      <motion.span animate={{ color: isInView ? "#475569" : "#94a3b8" }} className="text-[15px] sm:text-[16px] md:text-[18px] mb-2 font-bold">
+                        ر.ع
+                      </motion.span>
+                    </div>
+                    
+                    <span className="text-[12px] sm:text-[13px] font-extrabold bg-red-500 text-white px-2.5 py-1 rounded-full shadow-sm">
+                      خصم {Math.round(((plan.originalPrice - plan.price) / plan.originalPrice) * 100)}%
+                    </span>
+                  </div>
                 </motion.div>
 
-                <ul className="flex flex-col gap-5 mb-12 flex-grow relative z-10">
+                <ul className="flex flex-col gap-3 sm:gap-4 md:gap-5 mb-8 sm:mb-10 md:mb-12 flex-grow relative z-10">
                   {plan.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-center gap-4">
-                      <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${plan.highlight ? 'bg-[#004de6]/10' : (isInView ? 'bg-gray-200' : 'bg-white/10')}`}>
-                        <CheckCircle2 className={`w-4 h-4 ${plan.highlight ? 'text-[#004de6]' : (isInView ? 'text-gray-600' : 'text-white/60')}`} />
+                    <li key={fIdx} className="flex items-center gap-3 sm:gap-4">
+                      <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shrink-0 ${plan.highlight ? 'bg-[#004de6]/10' : (isInView ? 'bg-gray-200' : 'bg-white/10')}`}>
+                        <CheckCircle2 className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${plan.highlight ? 'text-[#004de6]' : (isInView ? 'text-gray-600' : 'text-white/60')}`} />
                       </div>
-                      <motion.span animate={{ color: isInView ? "#1e293b" : "#e2e8f0" }} className="text-[16px] font-semibold leading-relaxed">
+                      <motion.span animate={{ color: isInView ? "#1e293b" : "#e2e8f0" }} className="text-[14px] sm:text-[15px] md:text-[16px] font-semibold leading-relaxed">
                         {feature}
                       </motion.span>
                     </li>
@@ -166,7 +202,8 @@ export default function Pricing() {
                 </ul>
 
                 <button 
-                  className={`w-full py-4 rounded-full font-bold text-[18px] transition-all duration-500 overflow-hidden relative group/btn z-10 ${
+                  onClick={() => handleOrder(plan)}
+                  className={`w-full py-3.5 sm:py-4 rounded-full font-bold text-[15px] sm:text-[16px] md:text-[18px] transition-all duration-500 overflow-hidden relative group/btn z-10 min-h-[48px] ${
                     plan.highlight 
                       ? "bg-[#004de6] text-white shadow-[0_15px_30px_rgba(0,77,230,0.3)] hover:shadow-[0_20px_40px_rgba(0,77,230,0.4)] hover:-translate-y-1" 
                       : (isInView ? "bg-white text-gray-900 border-2 border-gray-200 hover:border-primary hover:text-primary shadow-sm" : "bg-white/5 text-white hover:bg-white/10 border-2 border-white/10")
@@ -182,51 +219,55 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Interactive Add-on Services Section */}
+        {/* Interactive Hosting & Maintenance Section */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20"
+          className="mt-12 sm:mt-16 md:mt-20"
         >
-          <div className="text-center mb-10">
-            <h3 className={`text-[28px] font-bold mb-3 ${isInView ? 'text-gray-900' : 'text-white'}`}>
-              خدمات إضافية حسب الطلب
+          <div className="text-center mb-6 sm:mb-8 md:mb-10">
+            <h3 className={`text-[22px] sm:text-[26px] md:text-[28px] font-bold mb-6 sm:mb-8 ${isInView ? 'text-gray-900' : 'text-white'}`}>
+              الاستضافة والصيانة (اختياري)
             </h3>
-            <p className={`text-[16px] ${isInView ? 'text-gray-600' : 'text-gray-400'}`}>
-              خصص باقتك بضغطة زر واحدة. أضف الميزات التي تحتاجها فقط.
-            </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            {addons.map((addon) => {
-              const isSelected = selectedAddons.includes(addon.id);
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-2xl mx-auto">
+            {hostingPlans.map((plan) => {
+              const isSelected = selectedHosting === plan.id;
               return (
                 <button
-                  key={addon.id}
-                  onClick={() => toggleAddon(addon.id)}
-                  className={`relative flex items-center gap-3 px-6 py-4 rounded-full transition-all duration-300 overflow-hidden ${
+                  key={plan.id}
+                  onClick={() => setSelectedHosting(plan.id)}
+                  className={`relative flex flex-col p-5 sm:p-6 rounded-xl sm:rounded-[1rem] transition-all duration-300 overflow-hidden w-full sm:w-1/2 text-right border-[1.5px] min-h-[48px] ${
                     isSelected 
-                      ? "bg-primary text-white shadow-[0_10px_20px_rgba(0,87,255,0.2)] border-2 border-primary scale-105" 
-                      : `border-2 ${isInView ? 'bg-white border-gray-200 text-gray-700 hover:border-primary/50' : 'bg-white/5 border-white/10 text-white hover:bg-white/10'}`
+                      ? (isInView ? "bg-[#f0f6ff] border-[#0057ff]" : "bg-[#0057ff]/10 border-[#0057ff]") 
+                      : (isInView ? "bg-[#f4f7f9] border-transparent hover:border-gray-200" : "bg-white/5 border-transparent hover:bg-white/10")
                   }`}
                 >
-                  <span className="text-[20px]">{addon.icon}</span>
-                  <span className="font-bold text-[16px]">{addon.title}</span>
-                  <span className={`text-[14px] font-black en-text ml-2 pl-4 border-l ${isSelected ? 'border-white/20' : (isInView ? 'border-gray-200' : 'border-white/10')}`}>
-                    +{addon.price} OMR
+                  <div className="flex justify-between items-start w-full">
+                    <div className="flex flex-col gap-1">
+                      <span className={`font-bold text-[16px] sm:text-[18px] ${isInView ? 'text-gray-900' : 'text-white'}`}>
+                        {plan.name}
+                      </span>
+                      <div className="flex items-center gap-1 font-bold">
+                        <span className="text-[18px] sm:text-[20px] text-[#0057ff]">{plan.price}</span>
+                        <span className={`text-[12px] sm:text-[13px] ${isInView ? 'text-gray-500' : 'text-gray-400'}`}>{plan.currency}</span>
+                      </div>
+                    </div>
+                    <div className={`mt-1 shrink-0 ${isSelected ? 'text-[#0057ff]' : 'text-transparent'}`}>
+                      <CheckCircle2 className="w-5 h-5" />
+                    </div>
+                  </div>
+                  
+                  <span className={`text-[12px] sm:text-[13px] mt-3 sm:mt-4 font-medium leading-relaxed ${isInView ? 'text-gray-500' : 'text-gray-400'}`}>
+                    {plan.features}
                   </span>
 
-                  {/* Add/Remove Icon */}
-                  <div className={`mr-2 w-6 h-6 rounded-full flex items-center justify-center transition-colors ${isSelected ? 'bg-white text-primary' : (isInView ? 'bg-gray-100 text-gray-400' : 'bg-white/10 text-white/50')}`}>
-                    {isSelected ? <CheckCircle2 className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-                  </div>
-
-                  {/* Ripple effect on select */}
                   {isSelected && (
                     <motion.div 
-                      layoutId={`glow-${addon.id}`}
-                      className="absolute inset-0 bg-white/10"
+                      layoutId="hosting-glow"
+                      className="absolute inset-0 bg-[#0057ff]/[0.02]"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}

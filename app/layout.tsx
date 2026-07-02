@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Volivar | موقعك جاهز خلال 72 ساعة",
   description: "Volivar يبني مواقع احترافية للشركات والمتاجر والعيادات والمطاعم بدون تعقيد وبدون انتظار أشهر.",
   icons: {
-    icon: "/logo.webp",
+    icon: "/logo.png",
   },
 };
 

@@ -61,10 +61,7 @@ export default function WhatsAppFloat() {
         {isExpanded ? (
           <X className="w-7 h-7 text-[#075e54]" />
         ) : (
-          <>
-            <MessageCircle className="w-8 h-8 text-white" />
-            <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30 pointer-events-none" />
-          </>
+          <MessageCircle className="w-8 h-8 text-white" />
         )}
       </motion.button>
     </div>

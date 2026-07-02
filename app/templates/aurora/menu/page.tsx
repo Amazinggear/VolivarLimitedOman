@@ -86,9 +86,9 @@ export default function MenuPage() {
             onClick={() => setSelectedItem(item)}
             className="flex flex-col gap-2 p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#C5A059]/50 transition-colors duration-500 group cursor-pointer"
           >
-            <div className="flex justify-between items-baseline border-b border-white/10 pb-4 mb-2 border-dashed group-hover:border-[#C5A059]/50 transition-colors">
+            <div className="flex justify-between items-baseline gap-4 border-b border-white/10 pb-4 mb-2 border-dashed group-hover:border-[#C5A059]/50 transition-colors">
               <h3 className="text-xl font-bold text-white group-hover:text-[#C5A059] transition-colors">{item.name}</h3>
-              <span className="text-[#C5A059] font-bold en-text tracking-wider">{item.price}</span>
+              <span className="text-[#C5A059] font-bold en-text tracking-wider shrink-0 whitespace-nowrap">{item.price}</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
           </motion.div>

@@ -13,9 +13,9 @@ export default function HomePage() {
     <main className="min-h-screen bg-background text-on-background selection:bg-primary/30 selection:text-white">
       <Navbar />
       <HeroSection />
-      <HowItWorks />
       <TemplatesSection />
       <ValueProposition />
+      <HowItWorks />
       <Pricing />
       <Footer />
     </main>

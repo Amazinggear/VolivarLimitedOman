@@ -93,7 +93,7 @@ export default function LuminaDoctorsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.7 }}
-              className="group bg-[#F8FAFC] rounded-[2rem] overflow-hidden border border-[#0F172A]/5 hover:border-[#0284C7]/30 hover:shadow-xl hover:shadow-[#0284C7]/10 transition-all duration-500"
+              className="group bg-[#F8FAFC] rounded-[2rem] overflow-hidden border border-[#0F172A]/5 hover:border-[#0284C7]/30 hover:shadow-xl hover:shadow-[#0284C7]/10 transition-[border-color,box-shadow] duration-500"
             >
               <div className="grid grid-cols-1 sm:grid-cols-5">
                 {/* Image */}

@@ -58,7 +58,7 @@ export default function AuroraCafePage() {
             src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2000&auto=format&fit=crop" 
             alt="حبوب قهوة مميزة" 
             fill 
-            className="object-cover object-left opacity-60"
+            className="object-cover object-center lg:object-left opacity-60"
             priority
           />
         </motion.div>
